@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-import { View, Text, TextInput, Pressable } from 'react-native'
+import { View, Text, TextInput, Pressable, Linking } from 'react-native'
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function SignIn() {
 
@@ -89,29 +90,42 @@ export default function SignIn() {
           borderRadius: 45 / 2,
           marginTop: 4,
           width: '85%',
-          backgroundColor: isFilled ? '#fff' : '#aaa',
+          backgroundColor: isFilled ? '#fff' : '#ffffff50',
           justifyContent: 'center',
-          elevation: isFilled? 10:0
+          elevation: isFilled ? 10 : 0
         }}>
 
         <Text style={{
-          color: isFilled ? '#222':'#555',
+          fontSize: 13,
+          color: isFilled ? '#000' : '#333',
           alignSelf: 'center'
         }}>
-          Login
+          ENTRAR
         </Text>
 
       </Pressable>
 
       <Pressable
+        onPress={() => Linking.openURL(`https://api.whatsapp.com/send?phone=5586994773403`)}
         style={{
-          marginTop: 30
+          height: 45,
+          marginTop: 10,
+          width: '85%',
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center'
         }}>
+
         <Text style={{
           color: '#aaa',
+          alignSelf: 'center',
+          marginRight: 15
         }}>
           Fale com o Guia
         </Text>
+
+        <Ionicons name="chatbox-outline" color={'#aaa'} size={18} />
+
       </Pressable>
 
     </View>
